@@ -1,14 +1,14 @@
 // import React, { useEffect } from "react";
 // import Layout from "./Layout";
-// import FormEditProduct from "../components/FormEditProduct";
+// import FormAddUser from "../components/FormAddUser";
 // import { useDispatch, useSelector } from "react-redux";
 // import { useNavigate } from "react-router-dom";
 // import { getMe } from "../features/authSlice";
 
-// const EditProduct = () => {
+// const AddUser = () => {
 //   const dispatch = useDispatch();
 //   const navigate = useNavigate();
-//   const { isError } = useSelector((state) => state.auth);
+//   const { isError, user } = useSelector((state) => state.auth);
 
 //   useEffect(() => {
 //     dispatch(getMe());
@@ -18,24 +18,27 @@
 //     if (isError) {
 //       navigate("/");
 //     }
-//   }, [isError, navigate]);
+//     if (user && user.role !== "admin") {
+//       navigate("/dashboard");
+//     }
+//   }, [isError, user, navigate]);
 //   return (
 //     <Layout>
-//       <FormEditProduct />
+//       <FormAddUser />
 //     </Layout>
 //   );
 // };
 
-// export default EditProduct;
+// export default AddUser;
 
 import React, { useEffect } from "react";
-import Layout from "./Layout";
-import FormEditProduct from "../components/FormEditProduct";
+import Layout from "../Layout";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { getMe } from "../features/authSlice";
+import { getMe } from "../../../features/authSlice.js";
+import FormAddUser from "../../../components/admin/userComponent/FormAddUser";
 
-const EditProduct = () => {
+const AddUser = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { isError } = useSelector((state) => state.auth);
@@ -52,9 +55,9 @@ const EditProduct = () => {
 
   return (
     <Layout>
-      <FormEditProduct />
+      <FormAddUser />
     </Layout>
   );
 };
 
-export default EditProduct;
+export default AddUser;

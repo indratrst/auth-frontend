@@ -29,11 +29,12 @@
 // export default AddProduct;
 
 import React, { useEffect } from "react";
-import Layout from "./Layout";
-import FormAddProduct from "../components/FormAddProduct";
+import Layout from "../Layout";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { getMe } from "../features/authSlice.js";
+import { getMe } from "../../../features/authSlice.js";
+import FormAddProduct from "../../../components/admin/productComponent/FormAddProduct";
+
 
 const AddProduct = () => {
   const dispatch = useDispatch();

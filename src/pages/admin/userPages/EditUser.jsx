@@ -1,11 +1,11 @@
 // import React, { useEffect } from "react";
 // import Layout from "./Layout";
-// import FormAddUser from "../components/FormAddUser";
+// import FormEditUser from "../components/FormEditUser";
 // import { useDispatch, useSelector } from "react-redux";
 // import { useNavigate } from "react-router-dom";
 // import { getMe } from "../features/authSlice";
 
-// const AddUser = () => {
+// const EditUser = () => {
 //   const dispatch = useDispatch();
 //   const navigate = useNavigate();
 //   const { isError, user } = useSelector((state) => state.auth);
@@ -24,21 +24,22 @@
 //   }, [isError, user, navigate]);
 //   return (
 //     <Layout>
-//       <FormAddUser />
+//       <FormEditUser />
 //     </Layout>
 //   );
 // };
 
-// export default AddUser;
+// export default EditUser;
+
 
 import React, { useEffect } from "react";
-import Layout from "./Layout";
-import FormAddUser from "../components/FormAddUser";
+import Layout from "../Layout";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { getMe } from "../features/authSlice.js";
+import { getMe } from "../../../features/authSlice";
+import FormEditUser from "../../../components/admin/userComponent/FormEditUser";
 
-const AddUser = () => {
+const EditUser = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { isError } = useSelector((state) => state.auth);
@@ -55,9 +56,9 @@ const AddUser = () => {
 
   return (
     <Layout>
-      <FormAddUser />
+      <FormEditUser />
     </Layout>
   );
 };
 
-export default AddUser;
+export default EditUser;

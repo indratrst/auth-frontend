@@ -1,14 +1,14 @@
 import React, { useEffect } from "react";
 import Layout from "./Layout";
-import Userlist from "../components/UserList";
+import Welcome from "../../components/admin/Welcome";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { getMe } from "../features/authSlice";
+import { getMe } from "../../features/authSlice";
 
-const Users = () => {
+const Dashboard = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { isError, user } = useSelector((state) => state.auth);
+  const { isError } = useSelector((state) => state.auth);
 
   useEffect(() => {
     dispatch(getMe());
@@ -18,15 +18,13 @@ const Users = () => {
     if (isError) {
       navigate("/");
     }
-    if (user && user.levelId !== 1) {
-      navigate("/dashboard");
-    }
-  }, [isError, user, navigate]);
+  }, [isError, navigate]);
+
   return (
     <Layout>
-      <Userlist />
+      <Welcome />
     </Layout>
   );
 };
 
-export default Users;
+export default Dashboard;

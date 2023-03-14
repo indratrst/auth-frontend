@@ -1,10 +1,10 @@
 import React from "react";
-import Navbar from "../components/Navbar";
-import Sidebar from "../components/Sidebar";
+import Navbar from "../../components/admin/Navbar";
+import Sidebar from "../../components/admin/Sidebar";
 
 const Layout = ({ children }) => {
   return (
-    <React.Fragment>
+    <>
       <Navbar />
       <div className="columns mt-6" style={{ minHeight: "100vh" }}>
         <div className="column is-2">
@@ -14,7 +14,7 @@ const Layout = ({ children }) => {
           <main>{children}</main>
         </div>
       </div>
-    </React.Fragment>
+    </>
   );
 };
 

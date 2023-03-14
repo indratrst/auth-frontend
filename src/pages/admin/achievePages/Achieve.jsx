@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
-import Layout from "./Layout";
-import Welcome from "../components/Welcome";
+import Layout from "../Layout";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { getMe } from "../features/authSlice";
+import { getMe } from "../../../features/authSlice";
+import AchieveList from "../../../components/admin/achieveComponent/AchieveList";
 
-const Dashboard = () => {
+const Achieve = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { isError } = useSelector((state) => state.auth);
@@ -19,12 +19,11 @@ const Dashboard = () => {
       navigate("/");
     }
   }, [isError, navigate]);
-
   return (
     <Layout>
-      <Welcome />
+      <AchieveList />
     </Layout>
   );
 };
 
-export default Dashboard;
+export default Achieve;
