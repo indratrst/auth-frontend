@@ -93,10 +93,10 @@ const Home = () => {
           </div>
 
           <div className="w-full self-end px-4 lg:w-1/2">
-            <div className="-mt-24 relative lg:right-0">
-              <img src={Hero} alt="pic hero" className="relative z-10 max-w-full mx-auto lg:-mt-64 transform " />
+            <div className="-mt-20 relative lg:right-0">
+              <img src={Hero} alt="pic hero" className="relative z-10 max-w-full mx-auto lg:-mt-64 transform" />
               <span className="absolute -bottom-3  left-1/2 -translate-x-1/2 md:scale-125">
-                <svg width="400" height="400" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <svg width="350" height="350" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
                   <path fill="#961c1c" d="M36.6,-20.9C50.5,-11.8,66.9,3.6,65,16.1C63.2,28.6,43.1,38.2,24,46C4.8,53.8,-13.4,59.8,-18.2,52C-23.1,44.3,-14.5,22.8,-21.7,1.9C-28.9,-19,-51.9,-39.4,-50.9,-45.5C-49.9,-51.7,-25,-43.6,-6.8,-38.2C11.4,-32.8,22.8,-30,36.6,-20.9Z" transform="translate(100 100) scale(1)" />
                 </svg>
                 
@@ -174,13 +174,13 @@ const Home = () => {
           </div>
         </div>
        
-        <div className="w-full px-4 flex flex-wrap justify-center">
+        <div className="md:w-full px-4 flex md:flex-wrap md:justify-center overflow-x-scroll">
         {projects.map((project) => (
           <>
-          <div className="mb-12 p-4 md:w-1/2">
+          <div className="w-full shrink-0 mb-12 p-2 md:p-4 md:w-1/2">
             <div className="rounded-md shadow-md overflow-hidden">
               <Link to={project.link}>
-              <img src={project.url} alt="portfolio1" width="w-full" />
+              <img src={project.url} alt={project.title} width="w-full" />
               </Link>
             </div>
             <h3 className="font-semibold text-xl text-dark mt-5 mb-3 dark:text-light">{project.title}</h3>
